@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drawing Canvas</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="shortcut icon"
+      href="data:image/jpeg;base64,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"
+      type="image/x-icon"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+
+
+
+
+
+    <main class="background-container">
+      <section class="particles-container">
+        <!-- Particles will be generated by JavaScript -->
+      </section>
+      <section class="gradient-overlay"></section>
+
+      <!-- Audio elements for sound effects (preloaded but muted) -->
+      <audio id="clickSound" preload="auto" src="sounds/click.mp3"></audio>
+      <audio id="burstSound" preload="auto" src="sounds/burst.mp3"></audio>
+
+      <!-- Sound toggle button -->
+      <button class="sound-toggle" aria-label="Toggle sound effects">
+        <span class="sound-icon sound-on">🔊</span>
+        <span class="sound-icon sound-off">🔇</span>
+      </button>
+    
+
+
+
+
+
+
+
+
+
+    <main class="drawing-app">
+      <div class="app-container">
+        <aside class="sidebar left-sidebar">
+          <section class="panel layers-panel">
+            <h3 class="panel-title">Layers</h3>
+            <div class="panel-content">
+              <div class="layers-list" id="layers-list">
+                <!-- Layers will be added here dynamically -->
+              </div>
+              <div class="layer-actions">
+                <button
+                  id="add-layer-button"
+                  class="icon-button"
+                  title="Add Layer"
+                >
+                  +
+                </button>
+                <button
+                  id="delete-layer-button"
+                  class="icon-button"
+                  title="Delete Layer"
+                >
+                  -
+                </button>
+                <button id="move-up-button" class="icon-button" title="Move Up">
+                  ↑
+                </button>
+                <button
+                  id="move-down-button"
+                  class="icon-button"
+                  title="Move Down"
+                >
+                  ↓
+                </button>
+              </div>
+            </div>
+          </section>
+
+          <section class="panel import-panel">
+            <h3 class="panel-title">Import</h3>
+            <div class="panel-content">
+              <input
+                type="file"
+                id="image-upload"
+                accept="image/*"
+                class="file-input"
+              />
+              <label for="image-upload" class="file-label">Choose Image</label>
+              <div class="import-options">
+                <select id="import-mode">
+                  <option value="new-layer">As New Layer</option>
+                  <option value="background">As Background</option>
+                  <option value="replace">Replace Current Layer</option>
+                </select>
+              </div>
+            </div>
+          </section>
+
+          <section class="panel filters-panel">
+            <h3 class="panel-title">Filters</h3>
+            <div class="panel-content">
+              <div class="filter-group">
+                <label for="brightness">Brightness:</label>
+                <input
+                  type="range"
+                  id="brightness"
+                  min="-100"
+                  max="100"
+                  value="0"
+                  class="filter-slider"
+                />
+                <span class="filter-value" id="brightness-value">0</span>
+              </div>
+              <div class="filter-group">
+                <label for="contrast">Contrast:</label>
+                <input
+                  type="range"
+                  id="contrast"
+                  min="-100"
+                  max="100"
+                  value="0"
+                  class="filter-slider"
+                />
+                <span class="filter-value" id="contrast-value">0</span>
+              </div>
+              <div class="filter-group">
+                <label for="saturation">Saturation:</label>
+                <input
+                  type="range"
+                  id="saturation"
+                  min="-100"
+                  max="100"
+                  value="0"
+                  class="filter-slider"
+                />
+                <span class="filter-value" id="saturation-value">0</span>
+              </div>
+              <div class="filter-presets">
+                <button id="grayscale-filter" class="filter-button">
+                  Grayscale
+                </button>
+                <button id="sepia-filter" class="filter-button">Sepia</button>
+                <button id="invert-filter" class="filter-button">Invert</button>
+                <button id="reset-filters" class="filter-button">Reset</button>
+              </div>
+              <button id="apply-filters" class="apply-button">
+                Apply to Layer
+              </button>
+            </div>
+          </section>
+
+          <section class="panel presets-panel">
+            <h3 class="panel-title">Tool Presets</h3>
+            <div class="panel-content">
+              <div class="presets-list" id="presets-list">
+                <!-- Presets will be added here dynamically -->
+                <div class="empty-message">No saved presets</div>
+              </div>
+              <div class="preset-actions">
+                <input
+                  type="text"
+                  id="preset-name"
+                  placeholder="Preset name"
+                  class="preset-name-input"
+                />
+                <button id="save-preset-button" class="preset-button">
+                  Save Current
+                </button>
+              </div>
+            </div>
+          </section>
+        </aside>
+
+        <div class="main-content">
+          <div class="collaboration-bar" id="collaboration-bar">
+            <div class="collab-status offline" id="collab-status">
+              <span class="status-indicator"></span>
+              <span class="status-text">Offline</span>
+            </div>
+            <div class="collab-controls">
+              <input
+                type="text"
+                id="username-input"
+                placeholder="Your name"
+                class="username-input"
+              />
+              <input
+                type="text"
+                id="room-input"
+                placeholder="Room ID"
+                class="room-input"
+              />
+              <button id="join-room-button" class="collab-button">
+                Join Room
+              </button>
+              <button id="create-room-button" class="collab-button">
+                Create Room
+              </button>
+              <button id="leave-room-button" class="collab-button" disabled>
+                Leave Room
+              </button>
+            </div>
+            <div class="active-users" id="active-users">
+              <!-- Active users will be added here dynamically -->
+            </div>
+          </div>
+
+          <section class="canvas-container">
+            <div id="layers-container" class="layers-container">
+              <!-- Canvas layers will be added here dynamically -->
+            </div>
+            <div id="cursors-container" class="cursors-container">
+              <!-- Remote cursors will be added here dynamically -->
+            </div>
+          </section>
+
+          <section class="controls">
+            <div class="control-group">
+              <label for="brush-type">Brush:</label>
+              <select id="brush-type" class="brush-selector">
+                <option value="pencil">Pencil</option>
+                <option value="marker">Marker</option>
+                <option value="eraser">Eraser</option>
+                <option value="spray">Spray</option>
+                <option value="custom">Custom</option>
+              </select>
+            </div>
+
+            <div class="control-group">
+              <label for="color-picker">Color:</label>
+              <input id="color-picker" type="color" value="#000000" />
+            </div>
+
+            <div class="control-group">
+              <label for="brush-size">Size:</label>
+              <input id="brush-size" type="range" min="1" max="50" value="5" />
+              <span class="brush-size-display">
+                <span id="brush-size-value">5</span>
+                <span>px</span>
+              </span>
+            </div>
+
+            <div class="control-group">
+              <button id="undo-button" class="history-button">Undo</button>
+              <button id="redo-button" class="history-button">Redo</button>
+            </div>
+
+            <div class="control-group">
+              <button id="clear-button">Clear</button>
+              <button id="save-button">Save</button>
+            </div>
+          </section>
+
+          <section class="advanced-controls">
+            <div class="control-panel">
+              <h3>Canvas Size</h3>
+              <div class="size-controls">
+                <div class="control-group">
+                  <label for="canvas-width">Width:</label>
+                  <input
+                    id="canvas-width"
+                    type="number"
+                    min="300"
+                    max="1920"
+                    value="800"
+                  />
+                </div>
+                <div class="control-group">
+                  <label for="canvas-height">Height:</label>
+                  <input
+                    id="canvas-height"
+                    type="number"
+                    min="200"
+                    max="1080"
+                    value="600"
+                  />
+                </div>
+                <button id="resize-button">Resize</button>
+              </div>
+            </div>
+
+            <div class="control-panel">
+              <h3>AI Drawing</h3>
+              <div class="ai-controls">
+                <div class="control-group full-width">
+                  <label for="ai-prompt">Prompt:</label>
+                  <input
+                    id="ai-prompt"
+                    type="text"
+                    placeholder="Describe what to draw..."
+                  />
+                </div>
+                <button id="ai-generate-button">Generate</button>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <aside class="sidebar right-sidebar">
+          <section class="panel chat-panel">
+            <h3 class="panel-title">Chat</h3>
+            <div class="panel-content">
+              <div class="chat-messages" id="chat-messages">
+                <div class="system-message">
+                  Join a room to chat with collaborators
+                </div>
+              </div>
+              <div class="chat-input-container">
+                <input
+                  type="text"
+                  id="chat-input"
+                  placeholder="Type a message..."
+                  disabled
+                />
+                <button id="send-message-button" class="send-button" disabled>
+                  Send
+                </button>
+              </div>
+            </div>
+          </section>
+
+          <section class="panel custom-brush-panel">
+            <h3 class="panel-title">Custom Brush Editor</h3>
+            <div class="panel-content">
+              <div class="brush-preview-container">
+                <canvas
+                  id="brush-preview"
+                  width="150"
+                  height="150"
+                  class="brush-preview"
+                ></canvas>
+              </div>
+              <div class="brush-options">
+                <div class="brush-option">
+                  <label for="brush-shape">Shape:</label>
+                  <select id="brush-shape" class="brush-option-select">
+                    <option value="circle">Circle</option>
+                    <option value="square">Square</option>
+                    <option value="triangle">Triangle</option>
+                    <option value="star">Star</option>
+                    <option value="heart">Heart</option>
+                  </select>
+                </div>
+                <div class="brush-option">
+                  <label for="brush-texture">Texture:</label>
+                  <select id="brush-texture" class="brush-option-select">
+                    <option value="solid">Solid</option>
+                    <option value="dots">Dots</option>
+                    <option value="lines">Lines</option>
+                    <option value="rough">Rough</option>
+                    <option value="gradient">Gradient</option>
+                  </select>
+                </div>
+                <div class="brush-option">
+                  <label for="brush-opacity">Opacity:</label>
+                  <input
+                    type="range"
+                    id="brush-opacity"
+                    min="10"
+                    max="100"
+                    value="100"
+                    class="brush-option-slider"
+                  />
+                  <span id="brush-opacity-value">100%</span>
+                </div>
+                <div class="brush-option">
+                  <label for="brush-scatter">Scatter:</label>
+                  <input
+                    type="range"
+                    id="brush-scatter"
+                    min="0"
+                    max="100"
+                    value="0"
+                    class="brush-option-slider"
+                  />
+                  <span id="brush-scatter-value">0%</span>
+                </div>
+                <div class="brush-option">
+                  <label for="brush-rotation">Rotation:</label>
+                  <input
+                    type="range"
+                    id="brush-rotation"
+                    min="0"
+                    max="360"
+                    value="0"
+                    class="brush-option-slider"
+                  />
+                  <span id="brush-rotation-value">0°</span>
+                </div>
+              </div>
+              <button id="apply-brush-button" class="apply-button">
+                Apply Brush
+              </button>
+            </div>
+          </section>
+        </aside>
+      </div>
+
+      <!-- Custom Brush Modal -->
+      <div id="custom-brush-modal" class="modal">
+        <div class="modal-content">
+          <span class="close-modal">&times;</span>
+          <h3>Save Custom Brush</h3>
+          <div class="modal-form">
+            <div class="form-group">
+              <label for="custom-brush-name">Brush Name:</label>
+              <input
+                type="text"
+                id="custom-brush-name"
+                placeholder="My Custom Brush"
+              />
+            </div>
+            <div class="form-actions">
+              <button id="cancel-custom-brush" class="cancel-button">
+                Cancel
+              </button>
+              <button id="save-custom-brush" class="save-button">Save</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </main>
+    <script src="script.js"></script>
+  </body>
+</html>
